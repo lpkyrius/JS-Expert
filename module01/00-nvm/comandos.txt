@@ -1,0 +1,11 @@
+nvm install 18 -> install version 18
+nvm install lts -> install version long-term support (recommended one)
+nvm list
+nvm use 18 -> use v 18 already installed in my laptop
+nvm alias default 18 -> define Node.js default version to be 18
+
+create file .nvmrc - with the desired version and the command "nvm use" to activate that version <<<
+
+node -v > .nvmrc -> to automatically creates the .nvmrc file with the current version content within
+
+nvm use -> this command makes it find the .nvmrc file and sets the default version as the one within the file.
