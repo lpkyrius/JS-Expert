@@ -11,7 +11,7 @@ const mocks = {
 
 ; (async () => {
   // {
-  //   // go to the internet!!
+  //   // to go to the internet instead, use the following:
   //   const service = new Service()
   //   const dados = await service.makeRequest(BASE_URL_2)
   //   console.log('dados', JSON.stringify(dados))
