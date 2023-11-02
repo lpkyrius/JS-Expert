@@ -1,10 +1,11 @@
 {
-  "name": "03-spies",
+  "name": "04-e2e-coverage",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node src/service.test.js"
+    "start": "node src/api.js",
+    "test": "npx mocha -w src/*.test.js" 
   },
   "engines": {
     "node": "18"
@@ -13,6 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sinon": "^15.0.1"
+    "mocha": "^10.2.0"
   }
 }
