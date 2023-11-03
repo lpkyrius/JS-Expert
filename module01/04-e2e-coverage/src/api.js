@@ -19,10 +19,10 @@ const routes = {
             user.password !== DEFAULT_USER.password 
         ) {
             response.writeHead(401)
-            response.end('Loggin failed!')
+            response.end('Log in failed!')
             return 
         }
-        return response.end('ok')
+        return response.end('Log in succeeded!')
     },
     default(request, response) {
         response.writeHead(404)
@@ -38,4 +38,6 @@ function handler(request, response) {
 }
 
 const app = http.createServer(handler)
-.listen(3000, () => console.log('Listening at 3000'))
+.listen(3000, () => console.log('Running at 3000'))
+
+module.exports = app;
