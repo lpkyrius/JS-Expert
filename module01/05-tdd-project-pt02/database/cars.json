@@ -1,0 +1,23 @@
+[
+    {
+        "id": "777dbf79-4b21-486d-9ec5-048cf14bbd46",
+        "name": "Grand Cherokee",
+        "releaseYear": 2022,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "fb6b3cb2-5675-4987-982c-6d65117a503f",
+        "name": "Challenger",
+        "releaseYear": 2023,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "31b5aff3-c324-4ebf-9401-7e613a7194ee",
+        "name": "Charger",
+        "releaseYear": 2023,
+        "available": true,
+        "gasAvailable": true
+    }
+]
