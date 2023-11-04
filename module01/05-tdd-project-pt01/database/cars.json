@@ -1,0 +1,23 @@
+[
+    {
+        "id": "7fcb9bcc-12fe-4b5f-b1ba-0c9ef0fb0251",
+        "name": "Golf",
+        "releaseYear": 2023,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "00156e68-227f-416c-b55d-3e931c6ffc63",
+        "name": "Roadster",
+        "releaseYear": 2023,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "50a6102b-b99e-42cc-804f-ab32967f6e9a",
+        "name": "Element",
+        "releaseYear": 2023,
+        "available": true,
+        "gasAvailable": true
+    }
+]
