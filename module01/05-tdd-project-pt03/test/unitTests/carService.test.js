@@ -85,11 +85,16 @@ describe('CarService Suite Tests', () => {
 
         const numberOfDays = 5;
 
-        const expected = new Intl.NumberFormat('pt-br', {
-            style: 'currency',
-            currency: 'BRL'
-        }).format(244.40)
+        // age: 50 -> tax: 1.3 -> categoryPrice: 37.6
+        // 37.6 * 1.3 = 48.88 * 5 days = 244.40
 
-        console.log('expected', expected);
+        const expected = carService.currencyFormat.format(244.40);
+        const result = carService.calculateFinalPrice(
+            customer,
+            carCategory,
+            numberOfDays
+        );
+
+        expect(result).to.be.deep.equal(expected);
     });
 })
