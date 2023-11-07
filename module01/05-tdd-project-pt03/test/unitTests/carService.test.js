@@ -126,6 +126,11 @@ describe('CarService Suite Tests', () => {
         sandbox.useFakeTimers(now.getTime());
         // age: 20, tax: 1.1, price: 37.6
         // 37.6 * 1.1 = 41.36 * 5 = 206.8
+        sandbox.stub(
+            carService.carRepository,
+            carService.carRepository.find.name
+        ).resolves(car);
+        
         const expectedAmount = carService.currencyFormat.format(206.8);
         const result = await carService.rent(
             customer, carCategory, numberOfDays
