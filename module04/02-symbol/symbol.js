@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { it } = require('node:test');
 
 // --- Keys ------------
 // create a uniqueKey based on memory reference 
@@ -59,6 +60,40 @@ class MyDate {
     constructor(...args){ // receives all parameters 
         this[kItems] = args.map( arg => new Date(...arg) );
     }
+
+    [Symbol.toPrimitive](coercionType) {
+        if (coercionType !== "string") throw new TypeError()
+
+        const items = this[kItems]
+                        .map(item => 
+                            new Intl 
+                                .DateTimeFormat("pt-BR", { month: "long", day: "2-digit", year: "numeric"})
+                                .format(item)
+                        )
+
+        return new Intl.ListFormat("pt-BR", { style: "long", type: "conjunction"}).format(items)
+    }
+    
+    // let's iterate it since it's not a list for default
+    *[Symbol.iterator](){
+        for (const item of this[kItems]) {
+            yield item;
+        }
+    }
+
+    // to work with promises
+    async *[Symbol.asyncIterator]() {
+        const timeout = ms => new Promise(r => setTimeout(r, ms))
+        for (const item of this[kItems]) {
+            await timeout(100);
+            // let's use toISOString() just to return on a different way of the sync one above
+            yield item.toISOString(); 
+        }
+    }
+
+    get [Symbol.toStringTag]() {
+        return 'What?';
+    }
 };
 
 const myDate = new MyDate(
@@ -71,4 +106,27 @@ const expectedDates = [
     new Date(2018, 02, 02),
 ];
 
-console.log('myDate', myDate);
+// usually, a toString on an Object returns [object Object]
+// the 2nd one, with Capital Letter is what we call toString Tag 
+// We can replace it, as done in "get [Symbol.toStringTag]()" a few lines above
+assert.deepStrictEqual(Object.prototype.toString.call(myDate), '[object What?]');
+
+// Creating the "number" coercion with myDate + 1
+assert.throws(() => myDate + 1, TypeError);
+
+// Now, an explicity string coercions using String()
+assert.deepStrictEqual(String(myDate), '01 de abril de 2020 e 02 de março de 2018');
+
+// Implementing Iterator
+assert.deepStrictEqual([...myDate], expectedDates);
+
+// ;(async() => {
+//     for await(const item of myDate) {
+//         console.log('asyncIterator', item);
+//     }
+// })()
+
+;(async() => {
+    const dates = await Promise.all([...myDate]);
+    assert.deepStrictEqual(dates, expectedDates);
+})
