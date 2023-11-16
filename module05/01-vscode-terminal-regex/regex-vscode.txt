@@ -1,0 +1,86 @@
+
+// check the website: regex101.com amazing to text regex but also to review and security validations
+in regex:
+\d -> search
+^ -> grab only the row's 1st positions
+$ -> always finish with $ to indicate that the expression finishes at each row.
+/g -> within entire row
+/gm -> multiline
+[.-] -> between brackets [] to indicate OR. So, it could be a dot . OR a dash -
+
+123.123.123-14
+321.123.345-20
+200.300.500-19
+
+So, the regex will be: 
+^\d{3}.\d{3}.\d{3}-\d{2}$
+
+At VSCode -> Ctrl+F -> [.-] and use the option .* (which indicates regex)
+VSCode will find all and I can replace with whatever I want (like with empty just to clear data)
+
+
+Passos, Leandro
+Gomes, Laila
+Johnson, Jose
+/w -> each letter
+/w+ -> every letter until find something different from a letter
+, -> find comma ,
+\s -> space
+
+\w+,\s\w+
+
+/^(\w+),(\s\w+)$/gm -> parenthesis split data per groups
+
+So, in VSCode we can find & replace:
+
+SEARCH:
+^(\w+),\s(\w+)$
+
+AND REPLACE FOR: 
+{firstName: "$2", lastName: "$1"}
+because $2 is a reference for the group 2 between the parenthesis in the regex
+
+THE TEXT:
+
+Passos, Leandro
+Gomes, Laila
+Johnson, Jose
+
+TURNS INTO:
+
+{firstName: "Leandro", lastName: "Passos"}
+{firstName: "Laila", lastName: "Gomes"}
+{firstName: "Jose", lastName: "Johnson"}
+
+------------------------------------------
+
+Now let's change from markdown to html:
+
+O [Erick Wendel](https://erickwendel.com) faz palestras e você devia segui-lo lá no [Twitter](http://twitter.com/erickwendel_) ou até no [Instagram](https://instagram.com/erickwendel_)
+Ah e pode pesquisar no [Google](https://google.com) ou
+[Yahoo](https://yahoo.com)
+vai que vai!
+
+/\[(.*?)]/gm -> everything between [ ] go to a group. We need the "?" otherwise it goest until the last "]", but we want it to stop for each "]"
+? is a good practice for regex, let it know that it doesn't need to search in the entire text, just goes until this specific character, in this case "]"
+\(([http|https].*)\) -> select everything .* between parenthesis. But as parenthesis is a group selector we need to use \( and \)
+
+So, in VSCode we can find & replace:
+
+SEARCH:
+\[(.*?)\]\(([http|https].*?)\) 
+
+AND REPLACE FOR:
+<a href="$2">$1</a>
+
+THE TEXT:
+
+O [Erick Wendel](https://erickwendel.com) faz palestras e você devia segui-lo lá no [Twitter](http://twitter.com/erickwendel_) ou até no [Instagram](https://instagram.com/erickwendel_)
+Ah e pode pesquisar no [Google](https://google.com) ou
+[Yahoo](https://yahoo.com)
+
+TURNS INTO:
+
+<a href="https://erickwendel.com">Erick Wendel</a> faz palestras e você devia segui-lo lá no <a href="http://twitter.com/erickwendel_">Twitter</a> ou até no <a href="https://instagram.com/erickwendel_">Instagram</a>
+Ah e pode pesquisar no <a href="https://google.com">Google</a> ou
+<a href="https://yahoo.com">Yahoo</a>

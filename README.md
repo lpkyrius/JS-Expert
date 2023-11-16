@@ -1,6 +1,8 @@
 # JS-Expert
 
-Let's take our JS knowledge to a whole new level
+###### Let's take our JS knowledge to a whole new level!
+
+#### Content
 
 - NVM
 - Mocks
@@ -12,4 +14,7 @@ Let's take our JS knowledge to a whole new level
 - Symbol
 - Map & WeakMap
 - Set & WeakSet
-- ... working in progress
+- Reflect
+- Proxy
+
+- x
