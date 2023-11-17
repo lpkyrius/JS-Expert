@@ -18,3 +18,4 @@
 - Proxy
 
 - Regex
+- Customized Errors
