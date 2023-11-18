@@ -1,3 +1,5 @@
+const { evaluateRegex } = require('./util');
+
 // Project Pattern Fluent API
 // the Fluent API Pattern goal is to execute tasks as in a
 // pipeline, step by step, and finally, calls build, which 
@@ -27,7 +29,7 @@ class TextProcessorFluentAPI {
         // m -> multiline (more than one row)
         // i -> insensitive (case insensitive)
 
-        const matchPerson = /(?<=[contratante|contratada]:\s{1})(?!\s)(.*\n.*?)$/gmi;
+        const matchPerson = evaluateRegex(/(?<=[contratante|contratada]:\s{1})(?!\s)(.*\n.*?)$/gmi);
 
         // match to find the entire string containing the data we're looking for, and return them as an array
         const onlyPerson = this.#content.match(matchPerson);
@@ -37,6 +39,17 @@ class TextProcessorFluentAPI {
         
         this.#content = onlyPerson;
 
+        return this;
+    }
+    divideTextInColumns() {
+        const splitRegex = evaluateRegex(/,/);
+        this.#content = this.#content.map(line => line.split(splitRegex));
+
+        return this;
+    }
+    removeEmptyCharacters() {
+        const trimSpaces = evaluateRegex(/^\s+|\s+$|\n/g);
+        this.#content = this.#content.map(line => line.map(item => item.replace(trimSpaces, "")))
         return this;
     }
     build() {
