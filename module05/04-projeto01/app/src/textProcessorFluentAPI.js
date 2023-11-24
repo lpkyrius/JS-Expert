@@ -1,4 +1,5 @@
 const { evaluateRegex } = require('./util');
+const Person = require('./person');
 
 // Project Pattern Fluent API
 // the Fluent API Pattern goal is to execute tasks as in a
@@ -50,6 +51,11 @@ class TextProcessorFluentAPI {
     removeEmptyCharacters() {
         const trimSpaces = evaluateRegex(/^\s+|\s+$|\n/g);
         this.#content = this.#content.map(line => line.map(item => item.replace(trimSpaces, "")))
+        return this;
+    }
+    mapPerson() {
+        // the items array is sent in the constructor
+        this.#content = this.#content.map(line => new Person(line));
         return this;
     }
     build() {
