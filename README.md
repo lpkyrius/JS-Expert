@@ -19,3 +19,5 @@
 
 - Regex
 - Customized Errors
+
+- Facade & Code Coverage
