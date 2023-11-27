@@ -21,3 +21,11 @@
 - Customized Errors
 
 - Facade & Code Coverage
+
+- Factory Design Pattern
+- N-Tier Architecture
+- Dependency Injection 
+- Creational Patterns
+
+- Abstract Factory
+- Isomorphic JavaScript
