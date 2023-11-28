@@ -29,3 +29,6 @@
 
 - Abstract Factory
 - Isomorphic JavaScript
+
+- Builder, Fluent API e Facade
+- Test Data Builder & Mother Object - Design Patterns for Testing
