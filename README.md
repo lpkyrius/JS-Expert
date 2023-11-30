@@ -32,3 +32,6 @@
 
 - Builder, Fluent API e Facade
 - Test Data Builder & Mother Object - Design Patterns for Testing
+
+- Strategy Pattern 
+- Examples using: Docker, Postgresql and MongoDb
