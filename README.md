@@ -35,3 +35,6 @@
 
 - Strategy Pattern 
 - Examples using: Docker, Postgresql and MongoDb
+
+- Observer Pattern
+- Jest (covering 100% of tests)
