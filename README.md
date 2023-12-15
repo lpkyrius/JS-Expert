@@ -38,3 +38,4 @@
 
 - Observer Pattern
 - Jest (covering 100% of tests)
+- Template Method
