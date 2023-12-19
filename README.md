@@ -33,9 +33,11 @@
 - Builder, Fluent API e Facade
 - Test Data Builder & Mother Object - Design Patterns for Testing
 
-- Strategy Pattern 
-- Examples using: Docker, Postgresql and MongoDb
-
-- Observer Pattern
-- Jest (covering 100% of tests)
-- Template Method
+- Behavioral
+    - Strategy Pattern 
+        - Examples using: Docker, Postgresql and MongoDb
+    - Observer Pattern
+    - Jest (covering 100% of tests)
+    - Template Method
+- Structural
+    - Decorator-Middleware
