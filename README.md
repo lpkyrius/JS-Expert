@@ -41,3 +41,4 @@
     - Template Method
 - Structural
     - Decorator-Middleware
+    - Adapter

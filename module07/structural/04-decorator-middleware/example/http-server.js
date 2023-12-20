@@ -1,7 +1,7 @@
 InjectHttpInterceptor();
 
 import http from 'http';
-import { InjectHttpInterceptor } from './../index.js';
+import { InjectHttpInterceptor } from '../index.js';
 
 // test in console: curl -i localhost:3000
 
