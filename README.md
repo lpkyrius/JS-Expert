@@ -42,3 +42,5 @@
 - Structural
     - Decorator-Middleware
     - Adapter
+- NPM
+    - Creating npm packages
