@@ -44,3 +44,4 @@
     - Adapter
 - NPM
     - Creating npm packages
+    - Package versions, semver rules, attacks & package-lock.json pollution
