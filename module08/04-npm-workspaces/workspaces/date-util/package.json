@@ -1,0 +1,22 @@
+{
+  "name": "@lpkyrius/data-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "c8": "^8.0.1",
+    "nodemon": "^3.0.2"
+  },
+  "scripts": {
+    "test": "node index.test.js",
+    "test:dev": "npx nodemon index.test.js",
+    "test:cov": "npx c8 --all --exclude node_modules/* npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lpkyrius/string-util": "^1.0.0"
+  }
+}

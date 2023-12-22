@@ -1,0 +1,19 @@
+{
+  "name": "@lpkyrius/string-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.test.js",
+    "test:dev": "npx nodemon index.test.js",
+    "test:cov": "npx c8 --all --exclude node_modules/* npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "c8": "^8.0.1",
+    "nodemon": "^3.0.2"
+  }
+}
