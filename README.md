@@ -45,3 +45,4 @@
 - NPM
     - Creating npm packages
     - Package versions, semver rules, attacks & package-lock.json pollution
+    - Distributing packages on the web using NPM, GitHub and Verdaccio. Multiple user profiles on the machine and associating records to user scopes
