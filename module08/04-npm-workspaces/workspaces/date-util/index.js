@@ -2,26 +2,36 @@ import StringUtil from "@lpkyrius/string-util"
 
 const availableFormats = {
     'dd-mm-yyyy': '$<day>-$<month>-$<year>',
-    'yyyy-mm-dd': '$<year>-$<month>-$<day>',
     'dd/mm/yyyy': '$<day>/$<month>/$<year>',
+    'yyyy-mm-dd': '$<year>-$<month>-$<day>',
+    'yyyy/mm/dd': '$<year>-$<month>-$<day>',
 }
 
 const yymmdd = /(?<year>\d{4}).(?<month>\d{2}).(?<day>\d{2})/g
+const ddmmyy = /(?<day>\d{2}).(?<month>\d{2}).(?<year>\d{4})/g
+
+const stringToDateExps = {
+    'dd-mm-yyyy': ddmmyy,
+    'dd/mm/yyyy': ddmmyy,
+    'yyyy-mm-dd': yymmdd,
+    'yyyy/mm/dd': yymmdd,
+}
 
 export default class DateUtil {
     static formatDate(date, format) {
-        if(!Object.keys(availableFormats).includes(format)) {
+        if (!Object.keys(availableFormats).includes(format)) {
             return {
                 error: `the format ${format} is not available yet :)`
             }
         }
         const exp = availableFormats[format]
         const [result] = date.toISOString().match(yymmdd) // match will keep the date and ignore the time
+        
         return result.replace(yymmdd, exp)
     }
 
-    static formatString(date, currentFormat, expectedFormat) {
-        if(StringUtil.isEmpty(date)) {
+    static formatString(dateStr, currentFormat, expectedFormat) {
+        if (StringUtil.isEmpty(dateStr)) {
             return { error: 'your text is empty'}
         }
 
@@ -32,5 +42,13 @@ export default class DateUtil {
         if(!Object.keys(availableFormats).includes(expectedFormat)) {
             return { error: `the format ${expectedFormat} is not available yet :( )`}
         }
+
+        const toDateExp = stringToDateExps[currentFormat]
+        const dateStrInISO = StringUtil
+                        .removeEmptySpaces(dateStr)
+                        .replace(toDateExp, '$<year>-$<month>-$<day>')
+        const finalDate = new Date(dateStrInISO);
+
+        return this.formatDate(finalDate, expectedFormat)
     }
 }

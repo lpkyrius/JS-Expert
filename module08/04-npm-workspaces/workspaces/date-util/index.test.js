@@ -67,3 +67,51 @@ import exp from 'constants';
     const result = DateUtil.formatString(data.value, data.format, expectedFormat)
     deepStrictEqual(result, expected)
 }
+
+{
+    const data = {
+        value: '1990-01-01',
+        format: 'yyyy-mm-dd'
+    }
+    const expectedFormat = 'dd-mm-yyyy'
+
+    const expected = '01-01-1990'
+    const result = DateUtil.formatString(data.value, data.format, expectedFormat)
+    deepStrictEqual(result, expected)
+}
+
+{
+    const data = {
+        value: ' 1 9 9 0 / 0 7 / 0 1 ',
+        format: 'yyyy/mm/dd'
+    }
+    const expectedFormat = 'dd/mm/yyyy'
+
+    const expected = '01/07/1990'
+    const result = DateUtil.formatString(data.value, data.format, expectedFormat)
+    deepStrictEqual(result, expected)
+}
+
+{
+    const data = {
+        value: ' 1 9 9 0 / 0 7 / 0 1 ',
+        format: 'yyyy/mm/dd'
+    }
+    const expectedFormat = 'yyyy-mm-dd'
+
+    const expected = '1990-07-01'
+    const result = DateUtil.formatString(data.value, data.format, expectedFormat)
+    deepStrictEqual(result, expected)
+}
+
+{
+    const data = {
+        value: ' 1 8 / 0 8 / 1 9 9 5  ',
+        format: 'dd/mm/yyyy'
+    }
+    const expectedFormat = 'yyyy-mm-dd'
+
+    const expected = '1995-08-18'
+    const result = DateUtil.formatString(data.value, data.format, expectedFormat)
+    deepStrictEqual(result, expected)
+}
