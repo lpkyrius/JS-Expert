@@ -48,3 +48,6 @@
     - Distributing packages on the web using NPM, GitHub and Verdaccio. Multiple user profiles on the machine and associating records to user scopes
     - NPM Workspaces + Code Coverage with c8
 - Debugging applications via terminal with Node.js Read-Eval-Print-Loop (REPL)
+- Bash vs JS: Google ZX for commands via Node.js
+    - compare scripts to create folders + initialize projects 
+    - compare scripts to initialize and remove docker containers

@@ -1,22 +1,23 @@
 // terminal:
 // curl "localhost:3000?salary=3000&discount=15"
 
+import { debug } from 'console'
 import http from 'http'
 
 function netSalary({ discount, salary }) {
     const percent = (discount / 100)
     const cost = salary * percent
-    const result = salary - cost
+    const result = salary - cost 
 
-    return result
+    return result 
 }
 
 http.createServer((req, res) => {
     const url = req.url.replace('/', '')
-    const params = new RLSearchParams(url)
+    const params = new URLSearchParams(url)
     const data = Object.fromEntries(params)
     const result = netSalary(data)
-
-    res.end(`Your final salary is ${ result }`)
+    debugger
+    res.end(`O seu salário final é: ${result}`)
 })
-.listen(3000, () => console.log('app running at 3000')) 
+.listen(3000, () => console.log('app running at 3000'))
