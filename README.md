@@ -51,3 +51,4 @@
 - Bash vs JS: Google ZX for commands via Node.js
     - compare scripts to create folders + initialize projects 
     - compare scripts to initialize and remove docker containers
+- Useful libraries for building rich command-line interfaces
