@@ -52,3 +52,4 @@
     - compare scripts to create folders + initialize projects 
     - compare scripts to initialize and remove docker containers
 - Useful libraries for building rich command-line interfaces
+- Working with frameworks for user input on the terminal
