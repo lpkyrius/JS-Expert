@@ -53,4 +53,4 @@
     - compare scripts to initialize and remove docker containers
 - Useful libraries for building rich command-line interfaces
 - Working with frameworks for user input on the terminal
-- #1 Code generator project - Creation of templates and project structure
+- Code generator project - Creation of templates and project structure - part 1
