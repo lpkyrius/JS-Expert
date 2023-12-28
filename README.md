@@ -54,3 +54,4 @@
 - Useful libraries for building rich command-line interfaces
 - Working with frameworks for user input on the terminal
 - Code generator project - Creation of templates and project structure + unit tests (TDD)
+- Code generator project - Creation of templates and project structure + integration tests (TDD)
