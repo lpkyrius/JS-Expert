@@ -9,9 +9,9 @@ const componentNameAnchor = '$$componentName'
 
 const template = `
 import $$serviceName from '../service/$$serviceNameDep.js'
-import $$repositoryName from '../service/$$repositoryNameDep.js'
+import $$repositoryName from '../repository/$$repositoryNameDep.js'
 
-export default $$componentNameFactory {
+export default class $$componentNameFactory {
     static getInstance() {
         const repository = new $$repositoryName()
         const service = new $$serviceName({ repository })
