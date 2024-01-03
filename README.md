@@ -57,3 +57,4 @@
     - unit tests (TDD)
     - integration tests (TDD)
     - executable
+- Read, Write, Duplex e Transform Streams
