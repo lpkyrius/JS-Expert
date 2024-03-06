@@ -1,14 +1,20 @@
 // -------------------------------
+//   ls    
+//   ls | grep pack    
+//   ls | grep pack | xargs cat   
 //   ls | grep pack | xargs cat | jq .name   
 
 // -------------------------------
+// .pipe is like the |, so, it grab the previous result and send it to the next command
+// 
 // process.stdin.pipe(process.stdout)
-//     .on('data', msg => console.log('data', msg.toString()))
+//     .on('data', msg => console.log('data', msg.toString())) // without .toString() it will be the buffer <buffer...
 //     .on('error', msg => console.log('error', msg.toString()))
-//     .on('end', _ => console.log('end'))
+//     .on('end', _ => console.log('end')) // only inform the stream has finished
 //     .on('close', _ => console.log('close'))
 
 // -------------------------------
+// open 2 terminals to communicate one with other:
 // creating our server - terminal 2
 // node -e "require('net').createServer(socket => socket.pipe(process.stdout)).listen(1338)"
 
