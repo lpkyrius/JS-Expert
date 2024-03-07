@@ -22,8 +22,9 @@
 // node -e "process.stdin.pipe(require('net').connect(1338))"
 
 // -------------------------------
-// Let's generate a big file here
-// node -e "process.stdout.write(crypto.randomBytes(1e9))" > big.file
+// Let's generate a big file here using terminal
+// 1e9 is 1 followed by 9 zeros 1.000.000.000
+// node -e "process.stdout.write(crypto.randomBytes(1e9))" > big.file 
 
 // now an api to return this file
 
@@ -45,9 +46,10 @@ http.createServer((req, res) => {
 
     // a better solution is
     createReadStream('big.file')
-        .pipe(res) // pipe manage memory much better (internally)
+        .pipe(res) // pipe manage memory much better (internally) I can see that now I don't have a big change in my computer memory use
 
 }).listen(3000, () => console.log('running at 3000'))
 
 // let's run catching the output into the output.txt file
+// run the file 1.native-stream.js and in the terminal run the following command:
 // curl localhost:3000 -o output.txt
