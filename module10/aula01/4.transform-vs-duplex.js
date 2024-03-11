@@ -40,17 +40,18 @@ server.push(`[duplex] hey this is also a readable!\n`)
 
 
 const transformToUpperCase = Transform({
-    objectMode: true,
+    objectMode: true, // so we work with the data without having to use .toString()
     transform(chunk, enc, cb) {
         cb(null, chunk.toUpperCase())
     }
 })
 
 // transform is also a duplex but they have no independent communication
-transformToUpperCase.write('[transform] hello from write!')
+transformToUpperCase.write('[transform] hello from write (from inside upperCase())!')
 // push ignores what you have in transform function 
-transformToUpperCase.push('[transform] hello from push\n')
+transformToUpperCase.push('[transform] hello from push (did not pass inside upperCase())\n')
 server
     .pipe(transformToUpperCase )
     // redirect all readable's data to Duplex's writable
+    // there was no connection between them, but .pipe makes the connection
     .pipe(server)

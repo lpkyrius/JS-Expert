@@ -1,6 +1,15 @@
 import { Readable, Writable, Transform } from 'stream'
 import { createWriteStream } from 'fs'
 
+/*
+
+Best option in my opinion.
+We have each function with its own responsibility (read, write, transform)
+It's simpler than Duplex
+
+*/
+
+
 // data source
 const readable = Readable({
     read() {
