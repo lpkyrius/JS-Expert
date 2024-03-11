@@ -17,10 +17,10 @@ const readable = Readable({
     }
 })
 
-// data processing
+// data processing uses Transform()
 const mapFields = Transform({
     transform(chunk, encoding, cb) {
-        const data = JSON.parse(chunk)
+        const data = JSON.parse(chunk) // because the chunk has been stringified above in readable
         const result = `${data.id}, ${data.name.toUpperCase(0)}\n`
     
         cb(null, result)
@@ -29,7 +29,7 @@ const mapFields = Transform({
 
 const mapHeaders = Transform({
     transform(chunk, encoding, cb) {
-        // only for the 1st row (0 or null) we add the headers
+        // only for the 1st row (0 or null) it returns the headers. Then, just concat the chunk
         this.counter = this.counter ?? 0;
         if(this.counter) {
             return cb(null, chunk)
@@ -42,14 +42,14 @@ const mapHeaders = Transform({
 
 // pipeline: let's read > map fields, add the header (if it's for the 1st row) > write it
 const pipeline = readable
-    .pipe(mapFields)
-    .pipe(mapHeaders)
+    .pipe(mapFields) // keep mapping files
+    .pipe(mapHeaders)// Add the header (1st line)
     // the writable is the output (print, save or ignore)
     // .pipe(writable)
-    // .pipe(process.stdout)
+
     // output data
-    // .pipe(process.stdout)
-    .pipe(createWriteStream('my.csv'))
+    // .pipe(process.stdout) // uncomment to show in terminal
+    .pipe(createWriteStream('my.csv')) // fs function to receive a chunk (buffer) and add into a file
 
 pipeline
     .on('end', () => console.log('finished!'))

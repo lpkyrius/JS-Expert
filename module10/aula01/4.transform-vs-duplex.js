@@ -2,10 +2,10 @@ import { Duplex, Transform } from 'stream'
 
 let count = 0;
 const server = new Duplex({
-    objectMode: true, // to avoid working with buffer but string instead. However, uses more memory
-    encoding: 'utf-8',
+    objectMode: true, // to avoid working with buffer, works with string instead. However, it uses more memory
+    encoding: 'utf-8',// utf-8 is the default anyway
     read() {
-        const everySecond = (intervalContext) => {
+        const everySecond = (intervalContext) => { //intervalContext to provide the Interval id. So, we can stop it below.
             if(count++ <= 5) {
                 this.push(`My name is Leandro[${count}]`)
                 return;
@@ -13,7 +13,7 @@ const server = new Duplex({
             clearInterval(intervalContext) // stops the Interval execution
             this.push(null) // says to NodeJS that our promise has finished
         }
-        // to stop Interval we need its context
+        // to stop Interval we need its context 'this'
         // that's why we past IntervalContext as a parameter above
         // and use 'this' below
         setInterval( function() { everySecond(this) })
