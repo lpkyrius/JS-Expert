@@ -7,7 +7,7 @@ const readable = Readable({
         this.push('Hello World 2')
         this.push('Hello World 3')
 
-        // to inform the data ended
+        // to inform the data has ended
         this.push(null)
     }
 })
