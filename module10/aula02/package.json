@@ -1,0 +1,16 @@
+{
+  "name": "@lpkyrius/aula02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start-server": "mkdir -p logs && node webapi.js",
+    "api1": "curl localhost:3000 | tee logs/api1.log",
+    "api2": "curl localhost:4000 | tee logs/api2.log",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "lpkyrius",
+  "license": "ISC"
+}
