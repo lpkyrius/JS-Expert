@@ -9,6 +9,7 @@
     "api1": "curl localhost:3000 | tee logs/api1.log",
     "api2": "curl localhost:4000 | tee logs/api2.log",
     "example01": "node examples/concat-streams.pass-through.js | tee logs/concat-streams.pass-through.log",
+    "example02": "node examples/async-streams.js | tee logs/async-streams.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
