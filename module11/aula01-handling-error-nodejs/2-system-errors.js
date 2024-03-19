@@ -1,6 +1,10 @@
 import timers from 'timers/promises'
 const timeoutAsync = timers.setTimeout;
 
+
+// Always manage errors for the case the application has any error outside itself or not
+
+
 // const results = ['1', '2'].map(async (item) => {
 //     console.log('starting process!!')
 //     await timeoutAsync(100)
