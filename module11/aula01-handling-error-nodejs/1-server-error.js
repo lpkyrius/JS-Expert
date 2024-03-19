@@ -21,12 +21,14 @@ async function handler(request, response) {
                 await Promise.reject('error inside FOR')
             }
             
-            response.end()
+            // response.end()
         }
     } catch (error) {
         console.log('a server error has happened', error)
         response.writeHead(500)
         response.write(JSON.stringify({ message: 'internal server error!'} ))
+        // response.end()
+    } finally {
         response.end()
     }
 }
