@@ -1,3 +1,8 @@
+/*
+Notification Pattern / Domain Notifications**
+Part of Domain Driven Design
+*/
+
 import { createServer } from 'http'
 import { statusCodes } from '../src/util/httpStatusCodes.js'
 import HeroEntity from './util/heroEntity.js'
