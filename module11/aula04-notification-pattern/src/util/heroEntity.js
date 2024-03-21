@@ -1,7 +1,7 @@
 import NotificationContext from "./notificationContext.js"
 
 export default class HeroEntity extends NotificationContext {
-    constructor({ name, age}) {
+    constructor({ name, age }) {
         super()
 
         this.name = name
