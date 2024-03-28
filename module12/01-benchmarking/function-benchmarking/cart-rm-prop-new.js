@@ -49,6 +49,15 @@ export default class Cart {
             // Cart#rmEmptyPropsMapReduce x 833,276 ops/sec ±10.88% (80 runs sampled)
             // Cart#rmEmptyPropsMapFor x 2,389,879 ops/sec ±0.31% (96 runs sampled)
             // Fastest is Cart#rmEmptyPropsMapFor
+
+            
+            // ==================================================================================================
+            // Final comments ********************
+            // Sometimes the ugly approach, using "bad practices" results in a huge performance improvement
+            // For these cases, it's up to you to decide what do you prefer (pretty/readable code vs performance)
+            // ==================================================================================================
+            
+
         }
 
         return result
