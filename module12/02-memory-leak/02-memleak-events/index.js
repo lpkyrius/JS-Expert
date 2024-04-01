@@ -25,6 +25,13 @@
 // Analyse and find the line with the memory leak:
 // npm i -D 0x
 
+// even more powefull
+// npm i -D clinic
+// npx clinic --help
+
+// to check if are there any process using the port:
+// lsof -i :3000 
+
 import { createServer } from 'http'
 import Events from 'events'
 import { randomBytes } from 'crypto'
@@ -38,7 +45,7 @@ function getBytes() {
 function onData() {
     getBytes()
     const items = []
-    setInterval(function myInterval() { items.push(Date.now()) })
+    // setInterval(function myInterval() { items.push(Date.now()) })
 }
 
 myEvent.on('data', onData)
