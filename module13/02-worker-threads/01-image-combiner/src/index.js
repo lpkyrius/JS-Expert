@@ -30,12 +30,16 @@ async function joinImages(images) {
 async function handler(request, response) {
     if(request.url.includes('joinImages')) {
         const { query: { background, img }} = parse(request.url, true)
-        const response = await joinImages({ 
+        const imageBase64 = await joinImages({ 
             image: img,
+
             background
         })
-        console.log({ background, img })
-        response.end('hello')
+
+        response.writeHead(200, {
+            'Content-Type': 'text/html'
+        })
+        response.end(`<img style="width:100%;height:100%" src="data:image/jpeg;base64,${imageBase64}"/>`)
         return;
     }
 
