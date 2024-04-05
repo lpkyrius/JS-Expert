@@ -18,7 +18,7 @@ export default class Order {
     getTaxes() {
         let taxes = 0;
         for (const item of this.items) {
-            // items such as water has no taxes
+            // items, such as water, have no taxes
             if (item instanceof TaxItem) {
                 taxes += item.calculateTax();
             }

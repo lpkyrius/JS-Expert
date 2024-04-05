@@ -1,8 +1,7 @@
 SOLID
 
 5 Principles
-
-flexible, less rigid, less fragile, easier to maintain and to evolute
+Goal: A software more flexible, less rigid, less fragile, easier to maintain and to evolute
 
 1 - SRP
 Single Responsibility Principle
@@ -40,7 +39,8 @@ Be careful with VERY COMPREHENSIVE interfaces, don't force subclasses to impleme
 
 Dependency Inversion Principle
 
-High-level modules should not depend on low-level modules
-Both should depend on abstractions
+High-level modules should not depend on low-level modules, e.g., an entity code using FS to read files or access Databases.
+An entity should not have details related to technology/infrastructure.
+Both (high level and low level modules) should depend on abstractions
 
 

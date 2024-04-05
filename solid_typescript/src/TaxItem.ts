@@ -1,5 +1,6 @@
 import Item from "./Item";
 
+// Template Method
 export default abstract class TaxItem extends Item {
 
     calculateTax() {

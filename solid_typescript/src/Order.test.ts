@@ -13,7 +13,7 @@ test("It should create an order and calculate the total", function () {
     expect(total).toBe(111);
 });
 
-test("t should create an order and calculate the taxes", function () {
+test("It should create an order and calculate the taxes", function () {
     const order = new Order(new MessageDataFile())
     order.addItem(new Beer("Brahma", 10));
     order.addItem(new Whisky("Jack Daniels", 100));
@@ -22,7 +22,7 @@ test("t should create an order and calculate the taxes", function () {
     expect(taxes).toBe(21);
 });
 
-test("Deve criar um pedido e imprimir uma mensagem em português", async function () {
+test("It should create an order and print a message in Portuguese", async function () {
     const order = new Order(new MessageDataFile())
     order.addItem(new Beer("Brahma", 10));
     order.addItem(new Whisky("Jack Daniels", 100));
@@ -31,7 +31,7 @@ test("Deve criar um pedido e imprimir uma mensagem em português", async functio
     expect(message).toBe("O total foi de R$111, os impostos foram R$21. Obrigado pelo seu pedido!");
 });
 
-test("Deve criar um pedido e imprimir uma mensagem em inglês", async function () {
+test("It should create an order and print a message in English", async function () {
     const order = new Order(new MessageDataFile())
     order.addItem(new Beer("Brahma", 10));
     order.addItem(new Whisky("Jack Daniels", 100));
