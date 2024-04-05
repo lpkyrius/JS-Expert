@@ -5,42 +5,36 @@ SOLID
 flexible, less rigid, less fragile, easier to maintain and to evolute
 
 1 - SRP
-
 Single Responsibility Principle
-
 Separate things that CHANGE FOR DIFFERENT REASONS
-
 Move Responsibilities
 
 
 2 - OCP
-
 Open/Closed Principle
-
 We should be closed to modifying and opened to extending.
 
 
 3 - Liskov Substitution Principle
 
-Se S (Beer, Whisky, Water) é subclasse de T (Item), em um programa deve ser possível substituir instâncias de T (Item) por instâncias de S (Beer, Whisky, Water), SEM QUEBRAR O FUNCIONAMENTO DO PROGRAMA
+If S (Beer, Whisky, Water) is a subclass of T (Item), in the code should be possible to change T instances for S instances without breaking the code. 
 
-Pré-condições não podem ser fortalecidas
+Preconditions cannot be strengthened
+by, e.g., changing the the INPUTS that the superclass considers valid, and considers these inputs as invalids.
+Like super class (Person) consider age >= 0 as valid and the subclass (Employee) consider only if >= 18
 
-Deixando de aceitar ENTRADAS que a superclasse considera válida
+Postconditions cannot be weakened
+By leaving new/not expected returns
+By accepting WIDE outputs, e.g. I expect a number in my method and the subclass returns an exception due to a new role (like age >= 18)
+Invariants must remain consistent
+If a subclass allows the conceptual state of the class classification to become invalid
 
-Pós-condições não podem ser enfraquecidas
-
-Aceitando saídas mais AMPLAS
-
-Invariantes devem se manter consistentes
-
-Se uma subclasse permitir que o estado conceitual da hierarquia de classes fique inválido
 
 4 - ISP
 
 Interface Segregation Principle
+Be careful with VERY COMPREHENSIVE interfaces, don't force subclasses to implement methods they don't need
 
-Cuidado com interfaces MUITO ABRANGENTES, não obrigue subclasses a implementar métodos que elas não precisam
 
 5 - DIP
 
